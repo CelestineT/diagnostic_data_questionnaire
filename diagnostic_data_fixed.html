@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #001F3F;
+      color: #001F3F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+    }
+    h1 {
+      color: #001F3F;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100px;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+    input[type="text"], input[type="number"], input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #F4A100;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    .error-message {
+      color: #dc3545;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .required-field {
+      border: 1px solid #dc3545 !important;
+    }
+    
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    .nav-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <img src="Logo_LiNK_Digital_Finance.png" alt="Logo LiNK Digital Finance" class="logo">
+  <h1>Diagnostic Data</h1>
+  <p>Évaluez votre Maturité Data et découvrez comment la Data et l'IA peuvent transformer votre Entreprise.</p>
+
+  <form id="diagnosticForm">
+    <div class="step active">
+      <div class="question">
+        <label>Nom de l'entreprise : <input type="text" name="nom_entreprise" required></label>
+      </div>
+      <div class="question">
+        <label>Secteur d'activité : <input type="text" name="secteur"></label>
+      </div>
+      <div class="question">
+        <label>Nombre d'employés : <input type="number" name="nb_employes"></label>
+      </div>
+
+    </div>
+
+    <div class="step">
+      <div class="question">
+        <label>Avez-vous un site internet ?</label>
+        <label><input type="radio" name="site_web" value="Oui"> Oui</label>
+        <label><input type="radio" name="site_web" value="Non"> Non</label>
+      </div>
+      <div class="question">
+        <label>Présence sur les réseaux sociaux ?</label>
+        <label><input type="checkbox" name="reseaux[]" value="Facebook"> Facebook</label>
+        <label><input type="checkbox" name="reseaux[]" value="Instagram"> Instagram</label>
+        <label><input type="checkbox" name="reseaux[]" value="LinkedIn"> LinkedIn</label>
+        <label><input type="checkbox" name="reseaux[]" value="Autre"> Autre</label>
+      </div>
+      <div class="question">
+        <label>Utilisez-vous des campagnes publicitaires en ligne ?</label>
+        <label><input type="radio" name="ads" value="Oui"> Oui</label>
+        <label><input type="radio" name="ads" value="Non"> Non</label>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="question">
+        <label>Utilisez-vous un CRM, ERP ou autre logiciel ?</label>
+        <label><input type="radio" name="logiciel" value="Oui"> Oui</label>
+        <label><input type="radio" name="logiciel" value="Non"> Non</label>
+      </div>
+      <div class="question">
+        <label>Analysez-vous vos données d'activité ?</label>
+        <label><input type="radio" name="analyse" value="Oui"> Oui</label>
+        <label><input type="radio" name="analyse" value="Non"> Non</label>
+      </div>
+      <div class="question">
+        <label>Avez-vous automatisé certaines tâches ?</label>
+        <label><input type="radio" name="automatisation" value="Oui"> Oui</label>
+        <label><input type="radio" name="automatisation" value="Non"> Non</label>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="question">
+        <label><strong>Quels sont vos objectifs principaux ?</strong></label>
+        <label><input type="checkbox" name="objectifs[]" value="Visibilité"> Améliorer ma visibilité</label>
+        <label><input type="checkbox" name="objectifs[]" value="Ventes"> Augmenter mes ventes</label>
+        <label><input type="checkbox" name="objectifs[]" value="Temps"> Gagner du temps</label>
+        <label><input type="checkbox" name="objectifs[]" value="Autre"> Autre : <input type="text" name="objectif_autre"></label>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="question">
+        <label>Adresse email : <input type="email" name="email" required></label>
+      </div>
+      <div style="text-align: center; background-color: #cce0f6; padding: 20px; border-radius: 8px; margin-top: 20px;">
+        <p><strong>Vous êtes à un clic de mieux comprendre votre Maturité Data !</strong></p>
+        <p><em>Cliquez ci-dessous pour recevoir votre Diagnostic Personnalisé Sous 48h.</em></p>
+        <button type="submit">Recevoir mon diagnostic</button>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button type="button" id="prevBtn">Précédent</button>
+      <button type="button" id="nextBtn">Suivant</button>
+      <div id="errorMessage" class="error-message">Veuillez remplir tous les champs requis avant de continuer.</div>
+    </div>
+  </form>
+</div>
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll(".step");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const errorMessage = document.getElementById("errorMessage");
+
+  function validateCurrentStep() {
+    const currentStepElement = steps[currentStep];
+    let isValid = true;
+    
+    // Réinitialiser les styles d'erreur
+    errorMessage.style.display = "none";
+    currentStepElement.querySelectorAll('.required-field').forEach(field => {
+      field.classList.remove('required-field');
+    });
+
+    if (currentStep === 0) {
+      // Première étape : nom entreprise requis
+      const nomEntreprise = currentStepElement.querySelector('input[name="nom_entreprise"]');
+      if (!nomEntreprise.value.trim()) {
+        nomEntreprise.classList.add('required-field');
+        isValid = false;
+      }
+    } else if (currentStep === 1) {
+      // Deuxième étape : au moins une réponse pour site web et ads
+      const siteWeb = currentStepElement.querySelector('input[name="site_web"]:checked');
+      const ads = currentStepElement.querySelector('input[name="ads"]:checked');
+      
+      if (!siteWeb) {
+        currentStepElement.querySelectorAll('input[name="site_web"]').forEach(radio => {
+          radio.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="site_web"]').forEach(radio => {
+          radio.closest('label').style.color = '';
+        });
+      }
+      
+      if (!ads) {
+        currentStepElement.querySelectorAll('input[name="ads"]').forEach(radio => {
+          radio.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="ads"]').forEach(radio => {
+          radio.closest('label').style.color = '';
+        });
+      }
+    } else if (currentStep === 2) {
+      // Troisième étape : toutes les questions radio requises
+      const logiciel = currentStepElement.querySelector('input[name="logiciel"]:checked');
+      const analyse = currentStepElement.querySelector('input[name="analyse"]:checked');
+      const automatisation = currentStepElement.querySelector('input[name="automatisation"]:checked');
+      
+      if (!logiciel) {
+        currentStepElement.querySelectorAll('input[name="logiciel"]').forEach(radio => {
+          radio.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="logiciel"]').forEach(radio => {
+          radio.closest('label').style.color = '';
+        });
+      }
+      
+      if (!analyse) {
+        currentStepElement.querySelectorAll('input[name="analyse"]').forEach(radio => {
+          radio.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="analyse"]').forEach(radio => {
+          radio.closest('label').style.color = '';
+        });
+      }
+      
+      if (!automatisation) {
+        currentStepElement.querySelectorAll('input[name="automatisation"]').forEach(radio => {
+          radio.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="automatisation"]').forEach(radio => {
+          radio.closest('label').style.color = '';
+        });
+      }
+    } else if (currentStep === 3) {
+      // Quatrième étape : au moins un objectif sélectionné
+      const objectifs = currentStepElement.querySelectorAll('input[name="objectifs[]"]:checked');
+      if (objectifs.length === 0) {
+        currentStepElement.querySelectorAll('input[name="objectifs[]"]').forEach(checkbox => {
+          checkbox.closest('label').style.color = '#dc3545';
+        });
+        isValid = false;
+      } else {
+        currentStepElement.querySelectorAll('input[name="objectifs[]"]').forEach(checkbox => {
+          checkbox.closest('label').style.color = '';
+        });
+      }
+    } else if (currentStep === 4) {
+      // Dernière étape : email requis
+      const email = currentStepElement.querySelector('input[name="email"]');
+      if (!email.value.trim()) {
+        email.classList.add('required-field');
+        isValid = false;
+      }
+    }
+
+    if (!isValid) {
+      errorMessage.style.display = "block";
+    }
+    
+    return isValid;
+  }
+
+  function showStep(index) {
+    steps.forEach((step, i) => step.classList.toggle("active", i === index));
+    prevBtn.style.display = index === 0 ? "none" : "inline-block";
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "inline-block";
+    
+    // Masquer le message d'erreur lors du changement d'étape
+    errorMessage.style.display = "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (validateCurrentStep() && currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+
+  document.getElementById('diagnosticForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const payload = {};
+    formData.forEach((value, key) => {
+      if (payload[key]) {
+        payload[key] += ", " + value;
+      } else {
+        payload[key] = value;
+      }
+    });
+    await fetch('https://hook.eu2.make.com/l4k42pa0jrylf1j1ek2ta5loctf31fvf', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    alert("Merci ! Votre Diagnostic a été soumis. Vous recevrez bientôt un email personnalisé.");
+    this.reset();
+    currentStep = 0;
+    showStep(currentStep);
+  });
+</script>
+
+</body>
+</html>
