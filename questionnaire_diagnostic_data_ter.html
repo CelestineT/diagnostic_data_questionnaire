@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnostic Digital - LINK Digital Finance</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #1e293b;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #4f46e5;
+    }
+    .section {
+      display: none;
+      margin-bottom: 30px;
+    }
+    .section.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      background: #f1f5f9;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    label:hover {
+      background: #e2e8f0;
+    }
+    input[type="radio"], input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .btn {
+      background: #4f46e5;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Diagnostic Digital</h1>
+    <p style="text-align:center;">Évaluez votre Maturité Digitale et découvrez comment la Data et l'IA peuvent transformer votre Entreprise</p>
+
+    <form id="formulaire-diagnostic">
+      <!-- Section de segmentation -->
+      <div class="section active" id="section-segment">
+        <h2>1. Pour commencer, dites-nous où vous en êtes...</h2>
+        <div class="question">
+          <label><input type="radio" name="segment" value="avec-site">🌐 J'ai déjà un site internet</label>
+          <label><input type="radio" name="segment" value="sans-site">📱 Je n'ai pas encore de site internet</label>
+        </div>
+        <div style="text-align:center;">
+          <button type="button" class="btn" onclick="afficherQuestions()">Suivant</button>
+        </div>
+      </div>
+
+      <!-- Section avec site -->
+      <div class="section" id="section-avec-site">
+        <h2>2. Performance de votre site</h2>
+        <div class="question">
+          <label><input type="radio" name="perf-site" value="excellent">Excellent – génère régulièrement des leads/ventes</label>
+          <label><input type="radio" name="perf-site" value="bon">Bon – fonctionne mais peut être optimisé</label>
+          <label><input type="radio" name="perf-site" value="moyen">Moyen – peu de résultats</label>
+          <label><input type="radio" name="perf-site" value="faible">Faible – a besoin d'une refonte</label>
+        </div>
+      </div>
+
+      <!-- Section sans site -->
+      <div class="section" id="section-sans-site">
+        <h2>2. Objectif principal pour créer un site</h2>
+        <div class="question">
+          <label><input type="radio" name="objectif-site" value="ventes">Augmenter mes ventes</label>
+          <label><input type="radio" name="objectif-site" value="visibilite">Améliorer ma visibilité</label>
+          <label><input type="radio" name="objectif-site" value="credibilite">Renforcer ma crédibilité</label>
+          <label><input type="radio" name="objectif-site" value="concurrence">Rattraper la concurrence</label>
+        </div>
+      </div>
+
+      <!-- Section IA -->
+      <div class="section" id="section-ia">
+        <h2>3. Votre expérience avec l'IA</h2>
+        <div class="question">
+          <label><input type="radio" name="ia" value="expert">Expert – j'utilise l'IA dans mon business</label>
+          <label><input type="radio" name="ia" value="intermediaire">Intermédiaire – j'ai testé des outils</label>
+          <label><input type="radio" name="ia" value="debutant">Débutant – je connais ChatGPT</label>
+          <label><input type="radio" name="ia" value="novice">Novice – je ne sais pas par où commencer</label>
+        </div>
+      </div>
+
+      <!-- Section Objectifs & contact -->
+      <div class="section" id="section-final">
+        <h2>4. Objectifs & accompagnement</h2>
+        <div class="question">
+          <label><input type="radio" name="objectif" value="visibilite">Améliorer ma visibilité</label>
+          <label><input type="radio" name="objectif" value="ventes">Augmenter mes ventes</label>
+          <label><input type="radio" name="objectif" value="gain_temps">Gagner du temps</label>
+        </div>
+        <div class="question">
+          <label><input type="radio" name="contact" value="oui">Souhaitez-vous être contacté(e) ? – Oui</label>
+          <label><input type="radio" name="contact" value="non">Non</label>
+        </div>
+        <div style="text-align:center;">
+          <button class="btn" type="submit">Soumettre le diagnostic</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function afficherQuestions() {
+      const segment = document.querySelector('input[name="segment"]:checked')?.value;
+      if (!segment) return alert("Merci de choisir une option.");
+
+      document.getElementById("section-segment").classList.remove("active");
+      document.getElementById("section-ia").classList.add("active");
+      document.getElementById("section-final").classList.add("active");
+      if (segment === "avec-site") {
+        document.getElementById("section-avec-site").classList.add("active");
+      } else {
+        document.getElementById("section-sans-site").classList.add("active");
+      }
+    }
+
+    document.getElementById("formulaire-diagnostic").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const entries = {};
+      for (const [key, value] of formData.entries()) {
+        if (entries[key]) {
+          entries[key] += ", " + value;
+        } else {
+          entries[key] = value;
+        }
+      }
+
+      fetch("https://hook.eu2.make.com/l4k42pa0jrylf1j1ek2ta5loctf31fvf",{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entries)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert("✅ Merci ! Vos réponses ont été envoyées.");
+          form.reset();
+          window.location.reload();
+        } else {
+          alert("❌ Une erreur est survenue lors de l'envoi.");
+        }
+      })
+      .catch(() => alert("❌ Une erreur est survenue."));
+    });
+  </script>
+</body>
+</html>
