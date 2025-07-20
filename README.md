@@ -4,16 +4,12 @@ Bienvenue dans le dépôt du **questionnaire de diagnostic digital** développé
 
 Ce projet a pour objectif d’aider les petites entreprises, commerçants, solopreneurs et indépendants à **évaluer leur niveau de maturité digitale** et à **découvrir comment l’Intelligence Artificielle (IA)** peut être intégrée dans leur activité.
 
----
-
 ## Objectifs
 
-- ✅ Évaluer la présence digitale actuelle (site web ou non)
-- 📊 Mesurer la performance ou les intentions digitales
-- 🤖 Identifier le niveau de familiarité avec l’IA
-- 🚀 Générer un score final et des recommandations personnalisées
-
----
+✅ Évaluer la présence digitale actuelle (site web ou non)
+📊 Mesurer la performance ou les intentions digitales
+🤖 Identifier le niveau de familiarité avec l’IA
+ Générer un score final et des recommandations personnalisées
 
 ## Aperçu
 
@@ -30,14 +26,10 @@ Exemples de recommandations :
 - Utiliser un chatbot
 - Mettre en place Google Analytics, etc.
 
----
-
 ## Structure du projet
 
 - `questionnaire_diagnostic_data_link_digital_finance.html` – le fichier principal contenant tout le code HTML, CSS et JavaScript
 - `README.md` – ce fichier
-
----
 
 ## Lancer le questionnaire localement
 
